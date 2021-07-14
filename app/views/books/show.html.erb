@@ -1,7 +1,13 @@
+<% if flash[:notice] %>
+ <p id="notice">
+   <%= flash[:notice] %>
+ </p>
+ <% end %>
+
 <p>
   <strong>Title:</strong>
-  "リードブルコード</p>
+  <%= @book.title %></p>
 <P>
   <strong>Body:</strong>
-  "より良いコードを書くためのシンプルで実践的なテクニック"
+  <%= @book.body %>
 </P>
