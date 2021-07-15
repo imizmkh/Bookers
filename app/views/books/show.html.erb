@@ -11,3 +11,10 @@
   <strong>Body:</strong>
   <%= @book.body %>
 </P>
+
+<p>
+  <%= link_to "Edit", edit_book_path(@book.id) %>
+</p>
+<p>
+  <a href="/books">Back</a>
+</p>
