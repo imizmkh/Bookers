@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+  validates :title, presence: true
+  validates :body, presence: true
+
   def index
     @books = Book.all
     @book = Book.new
@@ -26,10 +29,18 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
   end
 
+  def update
+    book = Book.find(params[:id])
+    book.update(book_params)
+    flash[:notice] = 'Book was successfully update.'
+    redirect_to book_path(book.id)
+  end
+
   def destroy
     book = Book.find(params[:id])
     book.destroy
     redirect_to books_path
+    flash[:notice] = 'Book was successfully destroy.'
   end
 
   private

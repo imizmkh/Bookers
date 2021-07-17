@@ -1,3 +1,9 @@
+<% if flash[:notice] %>
+ <p id="notice">
+   <%= flash[:notice] %>
+ </p>
+ <% end %>
+
 <h1>Books</h1>
 <table>
   <thead>
@@ -36,5 +42,6 @@
  <%= f.text_area :body %>
 
  <%= f.submit 'Create Book' %>
+ <%= render 'error_message', locals: { book: @book } %>
 
  <% end %>
