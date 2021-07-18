@@ -101,10 +101,19 @@ div{
   display: block;
 }
 
+label{
+  display: block;
+}
+
 .field,.action{
   margin-bottom: 10px;
 }
 
 #notice{
   color: green;
+}
+
+form{
+  display: block;
+  margin-top: 0;
 }
