@@ -1,6 +1,4 @@
 class BooksController < ApplicationController
-  validates :title, presence: true
-  validates :body, presence: true
 
   def index
     @books = Book.all
@@ -16,12 +14,13 @@ class BooksController < ApplicationController
   end
 
   def create
-    book = Book.new(book_params)
-    if book.save
+    @book = Book.new(book_params)
+    if @book.save
       flash[:notice] = 'Book was successfully created.'
-      redirect_to book_path(book.id)
+      redirect_to book_path(@book)
     else
-      render :new
+      @books = Book.all
+      render action: :index
     end
   end
 
